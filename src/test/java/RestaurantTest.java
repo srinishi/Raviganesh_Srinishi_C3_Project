@@ -6,6 +6,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -80,12 +82,15 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     @Test
-    public void adding_item_to_menu_and_get_total_equal_to_707(){
+    public void adding_item_to_menu_and_get_total_equal_to_388(){
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
         restaurant.addToMenu("Sizzling brownie",319);
-        String totalPrice = restaurant.getTotal();
-        assertEquals("Your order will cost:707",totalPrice);
+        List<String> names = new ArrayList<>();
+        names.add("Sweet corn soup");
+        names.add("Vegetable lasagne");
+        String totalPrice = restaurant.getTotal(names);
+        assertEquals("Your order will cost:388",totalPrice);
     }
 
 
@@ -94,7 +99,12 @@ class RestaurantTest {
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
         restaurant.addToMenu("Sizzling brownie",319);
-        String totalPrice = restaurant.getTotal();
+        List<String> names = new ArrayList<>();
+        names.add("Sweet corn soup");
+        names.add("Vegetable lasagne");
+        names.add("Sizzling brownie");
+        String totalPrice = restaurant.getTotal(names);
         assertNotEquals("Your order will cost:233",totalPrice);
     }
+
 }
