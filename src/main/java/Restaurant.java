@@ -72,4 +72,14 @@ public class Restaurant {
         return name;
     }
 
+    public String getTotal(List<String> items){
+        int total=0;
+        for (String list :items)
+        {
+            Item item = findItemByName(list);
+            total = total + item.getPrice();
+        }
+        return "Your order will cost:"+total;
+    }
+
 }
