@@ -12,7 +12,7 @@ public class RestaurantService {
             }
             else
             {
-                throw new restaurantNotFoundException("Restaurant not found");
+                throw new restaurantNotFoundException("Error: Restaurant could not be found");
             }
         }
         return null;
