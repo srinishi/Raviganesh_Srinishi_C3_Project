@@ -79,4 +79,22 @@ class RestaurantTest {
 
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void adding_item_to_menu_and_get_total_equal_to_707(){
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Sizzling brownie",319);
+        String totalPrice = restaurant.getTotal();
+        assertEquals("Your order will cost:707",totalPrice);
+    }
+
+
+    @Test
+    public void adding_item_to_menu_and_get_total_not_equal_to_233(){
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Sizzling brownie",319);
+        String totalPrice = restaurant.getTotal();
+        assertNotEquals("Your order will cost:233",totalPrice);
+    }
 }
